@@ -1,3 +1,7 @@
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 public class billete {
 
     private tipoBillete tipo;
@@ -7,7 +11,10 @@ public class billete {
     private String ciudad_destino;
     private String pais_destino;
 
-    public billete(String tipo, float precio, String c_origen, String p_origen, String c_destino, String p_destino){
+    private LocalDate fecha;
+    private static final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+    public billete(String tipo, float precio, String c_origen, String p_origen, String c_destino, String p_destino, String fecha){
         this.tipo = tipo;
 
         switch (tipo.toLowerCase()) {
@@ -25,11 +32,30 @@ public class billete {
                 throw new IllegalArgumentException("Tipo de billete desconocido");
         }
 
+        this.fecha = parse_fecha(fecha)
+
         this.precio = precio;
         this.ciudad_origen = c_origen;
         this.ciudad_destino = c_destino;
         this.pais_origen = p_origen;
         this.pais_destino = p_destino;
+    }
+
+    public LocalDate parse_fecha(String fecha){
+        try {
+            return LocalDate.parse(fecha, FORMATO_FECHA);
+        } catch (DateTimeParseException e) {
+                System.out.println("Fecha inválida: " + textoFecha);
+                return null; // o lanzar tu propia excepción, según te convenga
+        }
+    }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = parse_fecha(fecha);
     }
 
     public tipoBillete getTipo() {

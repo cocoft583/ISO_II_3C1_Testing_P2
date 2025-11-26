@@ -9,6 +9,22 @@ public class billete {
 
     public billete(String tipo, float precio, String c_origen, String p_origen, String c_destino, String p_destino){
         this.tipo = tipo;
+
+        switch (tipo.toLowerCase()) {
+            case "turista":
+                this.tipo = tipoBillete.TURISTA;
+                break;
+        
+            case "buissnes":
+                this.tipo = tipoBillete.BUISSNES;
+
+            case "primera": 
+                this.tipo = tipoBillete.PRIMERA;
+
+            default:
+                throw new IllegalArgumentException("Tipo de billete desconocido");
+        }
+
         this.precio = precio;
         this.ciudad_origen = c_origen;
         this.ciudad_destino = c_destino;

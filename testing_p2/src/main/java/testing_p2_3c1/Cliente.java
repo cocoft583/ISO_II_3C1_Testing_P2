@@ -116,7 +116,7 @@ public class Cliente {
         ingresos = nuevoIngreso;
     }
 
-    public void setDomicilio(String nuevoDomicilio){ç
+    public void setDomicilio(String nuevoDomicilio){
         domicilio = nuevoDomicilio;
     }
 

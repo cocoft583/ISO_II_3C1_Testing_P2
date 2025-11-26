@@ -1,5 +1,5 @@
 public enum tipoBillete {
     TURISTA,
-    BUISSNES,
+    BUSINESS,
     PRIMERA
 }

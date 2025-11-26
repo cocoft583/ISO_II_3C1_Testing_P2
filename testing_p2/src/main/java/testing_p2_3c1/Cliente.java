@@ -3,7 +3,7 @@ package ISO_II_3C1_Testing_P2.testing_p2.src.main.java.testing_p2_3c1;
 public class Cliente {
     private int edad;
     private int frecuenciaViajes;
-    private char preferenciaClase; // Será clase turista o clase business;
+    private tipoBillete preferenciaClase; // Será clase turista o clase business;
     private String destinoPreferido;
     private int disponibilidadFinanciera; // Lo consideramos como un atributo en el que se define lo máximo que puede
                                           // gastar el cliente.
@@ -17,12 +17,24 @@ public class Cliente {
     private String universidad; // El formato será como el de domicilio, indicando el nombre de la universidad,
                                 // la ciudad y el país.
 
-    public Cliente(int edad, int frecuenciaViajes, char preferenciaClase, String destinoPreferido,
+    public Cliente(int edad, int frecuenciaViajes, String preferenciaClase, String destinoPreferido,
             int disponibilidadFinanciera, boolean ninos, boolean trabaja, boolean independizado, int ingresos,
             String domicilio, String universidad) {
         this.edad = edad;
         this.frecuenciaViajes = frecuenciaViajes;
         this.preferenciaClase = preferenciaClase;
+        switch (preferenciaClase.toLowerCase()) {
+            case "turista":
+                this.preferenciaClase = tipoBillete.TURISTA;
+                break;
+            case "business":
+                this.preferenciaClase = tipoBillete.BUSINESS;
+            case "primera":
+                this.preferenciaClase = tipoBillete.PRIMERA;
+                break;
+            default:
+                throw new IllegalArgumentException("Tipo de billete desconocido");
+        }
         this.destinoPreferido = destinoPreferido;
         this.disponibilidadFinanciera = disponibilidadFinanciera;
         this.ninos = ninos;

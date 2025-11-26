@@ -15,8 +15,8 @@ public class billete {
                 this.tipo = tipoBillete.TURISTA;
                 break;
         
-            case "buissnes":
-                this.tipo = tipoBillete.BUISSNES;
+            case "business":
+                this.tipo = tipoBillete.BUSINESS;
 
             case "primera": 
                 this.tipo = tipoBillete.PRIMERA;

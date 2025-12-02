@@ -1,5 +1,8 @@
 package ISO_II_3C1_Testing_P2.testing_p2.src.main.java.testing_p2_3c1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cliente {
     private int edad;
     private int frecuenciaViajes;
@@ -16,6 +19,10 @@ public class Cliente {
                               // separadores.
     private String universidad; // El formato será como el de domicilio, indicando el nombre de la universidad,
                                 // la ciudad y el país.
+    
+    //Para poder registrar el número de veces que viaja un cliente al mes y al año lo vamos a hacer definiendo un array o una lista de billetes y el número de viajes para cada periodo de tiempo se obtendrá haciendo un size de ese tipo de datos.
+    List<billete> viajesMensuales = new ArrayList<>();
+    List<billete> viajesAnuales = new ArrayList<>();
 
     public Cliente(int edad, int frecuenciaViajes, String preferenciaClase, String destinoPreferido,
             int disponibilidadFinanciera, boolean ninos, boolean trabaja, boolean independizado, int ingresos,

@@ -10,10 +10,10 @@ public class Cliente {
     private String destinoPreferido;
     private int disponibilidadFinanciera; // Lo consideramos como un atributo en el que se define lo máximo que puede
                                           // gastar el cliente.
-    private boolean ninos; // Los niños son aquellos viajeros menores de 12 años.
+    //private boolean ninos; // Los niños son aquellos viajeros menores de 12 años.
     private boolean trabaja; // True --> Sí. False --> No.
     private boolean independizado; // True --> Sí. False --> No.
-    private int ingresos;
+    private int ingresos_anuales;
     private String domicilio; // El formato será algo como Calle, número, Ciudad , País. --> Separado por
                               // comas. Y así podremos aplicar lo de split usando las "," (comas) como
                               // separadores.
@@ -23,6 +23,8 @@ public class Cliente {
     //Para poder registrar el número de veces que viaja un cliente al mes y al año lo vamos a hacer definiendo un array o una lista de billetes y el número de viajes para cada periodo de tiempo se obtendrá haciendo un size de ese tipo de datos.
     List<billete> viajesMensuales = new ArrayList<>();
     List<billete> viajesAnuales = new ArrayList<>();
+
+    //Podremos tener una lista de billetes, y según queramos filtrar realizaremos una búsqueda. Habrá que pedir el número de hijos y en función de eso iremos por un caminmo u otro.
 
     public Cliente(int edad, int frecuenciaViajes, String preferenciaClase, String destinoPreferido,
             int disponibilidadFinanciera, boolean ninos, boolean trabaja, boolean independizado, int ingresos,

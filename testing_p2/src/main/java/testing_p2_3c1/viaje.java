@@ -3,9 +3,9 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.List;
 
-public class viaje {
+public class Viaje {
 
-    private List<billete> billetes;
+    private List<Billete> billetes;
     private tipoBillete tipo;
     private String destino;
     private String origen;
@@ -53,9 +53,9 @@ public class viaje {
         }
     }
 
-    private List<billete> crear_lista(int billetes) {
+    private List<Billete> crear_lista(int billetes) {
         for (int i = 0; i < billetes; i++) {
-            this.billetes.add(new billete());
+            this.billetes.add(new Billete());
         }   
         return null;
     }

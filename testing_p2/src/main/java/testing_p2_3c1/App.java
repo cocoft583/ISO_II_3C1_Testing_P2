@@ -7,7 +7,7 @@ public class App
         System.out.println( "Hello World!" );
     }
 
-    public static float calculo_tarifa(Clie){
+    public static float calculo_tarifa(Cliente cli, ){
 
     }
 

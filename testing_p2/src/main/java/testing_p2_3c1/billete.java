@@ -2,7 +2,7 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
-public class billete {
+public class Billete {
 
     private float precio;
 

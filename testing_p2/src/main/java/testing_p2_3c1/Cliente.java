@@ -20,7 +20,7 @@ public class Cliente {
     private String universidad; // El formato será como el de domicilio, indicando el nombre de la universidad,
                                 // la ciudad y el país.
     
-    //Para poder registrar el número de veces que viaja un cliente al mes y al año lo vamos a hacer definiendo un array o una lista de billetes y el número de viajes para cada periodo de tiempo se obtendrá haciendo un size de ese tipo de datos.
+    // Contiene la lista de viajes realizados por el cliente.
     List<viaje> viajes = new ArrayList<>();
  
 

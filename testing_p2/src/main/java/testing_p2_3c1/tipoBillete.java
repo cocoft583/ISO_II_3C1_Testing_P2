@@ -1,4 +1,5 @@
-public enum tipoBillete {
+public enum tipoBillete
+ {
     TURISTA,
     BUSINESS,
     PRIMERA

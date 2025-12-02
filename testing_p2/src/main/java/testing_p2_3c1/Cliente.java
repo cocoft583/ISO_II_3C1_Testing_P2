@@ -6,7 +6,7 @@ import java.util.List;
 public class Cliente {
     private int edad;
     private int frecuenciaViajes;
-    private tipoBillete preferenciaClase; // Será clase turista o clase business;
+    private tipoViaje preferenciaClase; // Será clase turista o clase business;
     private String destinoPreferido;
     private int disponibilidadFinanciera; // Lo consideramos como un atributo en el que se define lo máximo que puede
                                           // gastar el cliente.
@@ -21,8 +21,8 @@ public class Cliente {
                                 // la ciudad y el país.
     
     //Para poder registrar el número de veces que viaja un cliente al mes y al año lo vamos a hacer definiendo un array o una lista de billetes y el número de viajes para cada periodo de tiempo se obtendrá haciendo un size de ese tipo de datos.
-    List<billete> viajesMensuales = new ArrayList<>();
-    List<billete> viajesAnuales = new ArrayList<>();
+    List<viaje> viajes = new ArrayList<>();
+ 
 
     public Cliente(int edad, int frecuenciaViajes, String preferenciaClase, String destinoPreferido,
             int disponibilidadFinanciera, boolean ninos, boolean trabaja, boolean independizado, int ingresos,
@@ -32,12 +32,12 @@ public class Cliente {
         this.preferenciaClase = preferenciaClase;
         switch (preferenciaClase.toLowerCase()) {
             case "turista":
-                this.preferenciaClase = tipoBillete.TURISTA;
+                this.preferenciaClase = tipoViaje.TURISTA;
                 break;
             case "business":
-                this.preferenciaClase = tipoBillete.BUSINESS;
+                this.preferenciaClase = tipoViaje.BUSINESS;
             case "primera":
-                this.preferenciaClase = tipoBillete.PRIMERA;
+                this.preferenciaClase = tipoViaje.PRIMERA;
                 break;
             default:
                 throw new IllegalArgumentException("Tipo de billete desconocido");

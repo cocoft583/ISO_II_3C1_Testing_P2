@@ -13,7 +13,7 @@ public class Cliente {
     //private boolean ninos; // Los niños son aquellos viajeros menores de 12 años.
     private boolean trabaja; // True --> Sí. False --> No.
     private boolean independizado; // True --> Sí. False --> No.
-    private int ingresos_anuales;
+    private int ingresos;
     private String domicilio; // El formato será algo como Calle, número, Ciudad , País. --> Separado por
                               // comas. Y así podremos aplicar lo de split usando las "," (comas) como
                               // separadores.
@@ -99,6 +99,10 @@ public class Cliente {
 
     public String getUniversidad(){
         return universidad;
+    }
+
+    public List<Viaje> getViajes(){
+        return viajes;
     }
 
     public void setEdad(int nuevaEdad){

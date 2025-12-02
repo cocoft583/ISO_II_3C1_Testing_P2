@@ -8,6 +8,7 @@ public class Viaje {
     private List<Billete> billetes;
     private tipoBillete tipo;
     private String destino;
+    private String paisDestino;
     private String origen;
     private boolean conNinos;
     private String motivo;
@@ -15,12 +16,13 @@ public class Viaje {
 
     private static final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    public viaje(String tipo, String destino, String origen, int billetes, boolean conNinos,
+    public viaje(String tipo, String destino, String paisDestino, String origen, int billetes, boolean conNinos,
             String motivo) {
 
         this.destino = destino;
         this.origen = origen;
         this.conNinos = conNinos;
+        this.paisDestino = paisDestino;
         this.billetes = crear_lista(billetes); //REVISAR ESTO: Se crea dentro de viajes la lista de billetes
 
         switch (tipo.toLowerCase()) {
@@ -53,6 +55,75 @@ public class Viaje {
         }
     }
 
+    public List<Billete> getBilletes() {
+        return billetes;
+    }
+
+    public void setBilletes(List<Billete> billetes) {
+        this.billetes = billetes;
+    }
+
+    public tipoBillete getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(tipoBillete tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getDestino() {
+        return destino;
+    }
+
+    public void setDestino(String destino) {
+        this.destino = destino;
+    }
+
+    public String getOrigen() {
+        return origen;
+    }
+
+    public void setOrigen(String origen) {
+        this.origen = origen;
+    }
+
+    public boolean isConNinos() {
+        return conNinos;
+    }
+
+    public void setConNinos(boolean conNinos) {
+        this.conNinos = conNinos;
+    }
+
+    public String getMotivo() {
+        return motivo;
+    }
+
+    public void setMotivo(String motivo) {
+        this.motivo = motivo;
+    }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
+    }
+
+    publicpublic String getPaisDestino() {
+    return paisDestino;
+}
+
+public void setPaisDestino(String paisDestino) {
+    this.paisDestino = paisDestino;
+}
+
+ static DateTimeFormatter getFormatoFecha() {
+        return FORMATO_FECHA;
+    }
+
+    
     private List<Billete> crear_lista(int billetes) {
         for (int i = 0; i < billetes; i++) {
             this.billetes.add(new Billete());
@@ -68,4 +139,5 @@ public class Viaje {
                 return null; // o lanzar tu propia excepción, según te convenga
         }
     }
+
 }

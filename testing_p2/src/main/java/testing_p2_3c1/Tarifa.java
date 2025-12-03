@@ -1,9 +1,13 @@
 package testing_p2_3c1;
 
+import java.time.*;
+import java.util.Iterator;
+
 public class Tarifa {
 
     private String nombre;
     private double descuento; // 0.10 = 10 %
+    String[] mesesCurso = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "septiembre", "octubre", "noviembre", "diciembre"};
 
     public Tarifa(String nombre, double descuento) {
         this.nombre = nombre;
@@ -16,6 +20,27 @@ public class Tarifa {
 
     public double getDescuento() {
         return descuento;
+    }
+
+    public isMesCurso(c.viajes){
+        boolean mescurso = false;
+        //Verificamos que el viaje se realice entre el domicilio y la universidad
+        if(c.viajes.destino.equals(c.getDomicilio) || c.viajes.destion.equals(c.getUniversidad)){
+            //Verificamos que se realice durante los viajes del curso
+            Iterator<Viaje> viaje = c.viajes.iterator();
+            while (viaje.hasNext()) {
+                Viaje v = viaje.next();
+                while (!mescurso) {
+                    for(int i=0; i < mesesCurso.length; i++){
+                        if (mescurso[i] == v.getFecha().getMonthValue()) {
+                            mescurso = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        return mescurso;
     }
 
 

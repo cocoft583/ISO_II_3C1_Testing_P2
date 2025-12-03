@@ -4,12 +4,14 @@ import java.time.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
+
 
 public class Tarifa {
 
     private String nombre;
     private double descuento; // 0.10 = 10 %
-    String[] mesesCurso = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "septiembre", "octubre", "noviembre", "diciembre"};
+    Set<Integer> mesesCurso = Set.of(1,2,3,4,5,6,9,10,11,12)
 
     public Tarifa(String nombre, double descuento) {
         this.nombre = nombre;
@@ -24,10 +26,24 @@ public class Tarifa {
         return descuento;
     }
 
-    public boolena viajaDuranteElCurso (Cliente c){
+    public boolean viajaDuranteElCurso(Cliente c){
         boolean mescurso = false;
         List<Viaje> viajeDuranteCurso= new ArrayList<>();
         //Verificamos que el viaje se realice entre el domicilio y la universidad
+
+        for(Viaje v : c.viajes){
+            if((v.origen.equals(c.getDomicilio) && v.destino.equals(c.getUniversidad())) || (v.origen.equals(c.getUniversidad) && v.destino.equals(c.getDomicilio()))){
+                if(mesesCurso.contains(v.getFecha().getMonthValue()))
+                viajeDuranteCurso.add(v);   
+             
+            } else continue;
+
+        }
+        
+     }
+
+
+
         if((c.viajes.origen.equals(c.getDomicilio) && c.viajes.destino.equals(c.getUniversidad())) || (c.viajes.origen.equals(c.getUniversidad) && c.viajes.destino.equals(c.getDomicilio()))){
             viajeDuranteCurso.add(c.viaje); //Esta lista contendrá los viajes realizados durante el curso unicamente.
             //Verificamos que se realice durante los viajes del curso

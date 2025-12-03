@@ -25,11 +25,10 @@ public class Cliente {
 
     //Podremos tener una lista de billetes, y según queramos filtrar realizaremos una búsqueda. Habrá que pedir el número de hijos y en función de eso iremos por un caminmo u otro.
 
-    public Cliente(int edad, int frecuenciaViajes, String preferenciaClase, String destinoPreferido,
+    public Cliente(int edad, String preferenciaClase, String destinoPreferido,
             int disponibilidadFinanciera, boolean ninos, boolean trabaja, boolean independizado, int ingresos,
             String domicilio, String universidad) {
         this.edad = edad;
-        this.frecuenciaViajes = frecuenciaViajes;
         this.preferenciaClase = preferenciaClase;
         
         switch (preferenciaClase.toLowerCase()) {
@@ -62,6 +61,7 @@ public class Cliente {
     }
 
     public int getFrecuenciaViajes(){
+        
         return frecuenciaViajes;
     }
 

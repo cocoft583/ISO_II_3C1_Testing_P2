@@ -1,7 +1,9 @@
 package testing_p2_3c1;
 
 import java.time.*;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class Tarifa {
 
@@ -22,12 +24,14 @@ public class Tarifa {
         return descuento;
     }
 
-    public isMesCurso(c.viajes){
+    public isMesCurso(List <viaje> viajes){
         boolean mescurso = false;
+        List<Viaje> viajeDuranteCurso= new ArrayList<>();
         //Verificamos que el viaje se realice entre el domicilio y la universidad
-        if(c.viajes.destino.equals(c.getDomicilio) || c.viajes.destion.equals(c.getUniversidad)){
+        if(c.viajes.destino.equals(c.getDomicilio) || c.viajes.destino.equals(c.getUniversidad)){
+            viajeDuranteCurso.add(c.viaje); //Esta lista contendrá los viajes realizados durante el curso unicamente.
             //Verificamos que se realice durante los viajes del curso
-            Iterator<Viaje> viaje = c.viajes.iterator();
+            Iterator<Viaje> viaje = viajeDuranteCurso.iterator();
             while (viaje.hasNext()) {
                 Viaje v = viaje.next();
                 while (!mescurso) {

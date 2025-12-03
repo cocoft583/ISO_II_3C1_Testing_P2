@@ -19,7 +19,7 @@ public class Tarifa {
     }
 
 
-    public static Tarifa calcularTarifa(Cliente c) {
+    public static Tarifa calcularTarifa(Cliente c, Viaje v) {
 
         int edad = c.getEdad();
         int frecuencia = c.getFrecuenciaViajes();
@@ -28,7 +28,6 @@ public class Tarifa {
         int ingresos = c.getIngresos();        
         boolean trabaja = c.getTrabaja();
         boolean independizado = c.getIndependizado();
-        boolean ninos = c.getNinos();
 
         // 1) Menor de edad → Pajarillo
         if (edad < 18) {
@@ -61,7 +60,7 @@ public class Tarifa {
         // 4) >25 años, ingresos entre 20k y 35k, 6 viajes/año en turista dentro de Europa
         if (edad > 25 && ingresos > 20000 && ingresos < 35000) {
             if (clase == tipoViaje.TURISTA && frecuencia >= 6 && paisDestino.equalsIgnoreCase("europa")) {
-                if (ninos) {
+                if (v.isConNinos()) {
                     return new Tarifa("Conoce Europa con tus peques", 0.10);
                 } else {
                     return new Tarifa("Conoce Europa", 0.15);
@@ -74,7 +73,7 @@ public class Tarifa {
             if (clase == tipoViaje.BUSINESS && frecuencia >= 6 &&
                 (paisDestino.equalsIgnoreCase("asia") || paisDestino.equalsIgnoreCase("america"))) {
 
-                if (ninos) {
+                if (v.isConNinos()) {
                     return new Tarifa("Conoce el Mundo con tus peques", 0.10);
                 } else {
                     return new Tarifa("Conoce el Mundo", 0.20);

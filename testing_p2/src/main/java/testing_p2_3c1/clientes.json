@@ -1,0 +1,41 @@
+[
+  {
+    "edad": 22,
+    "frecuenciaViajes": 3,
+    "preferenciaClase": "TURISTA",
+    "destinoPreferido": "París",
+    "disponibilidadFinanciera": 800,
+    "ninos": false,
+    "trabaja": true,
+    "independizado": false,
+    "ingresos": 1200,
+    "domicilio": "Calle Mayor, 10, Albacete, España",
+    "universidad": "UCLM, Ciudad Real, España"
+  },
+  {
+    "edad": 35,
+    "frecuenciaViajes": 8,
+    "preferenciaClase": "BUSINESS",
+    "destinoPreferido": "Nueva York",
+    "disponibilidadFinanciera": 3000,
+    "ninos": true,
+    "trabaja": true,
+    "independizado": true,
+    "ingresos": 4000,
+    "domicilio": "Av. Castilla, 25, Madrid, España",
+    "universidad": "UPM, Madrid, España"
+  },
+  {
+    "edad": 19,
+    "frecuenciaViajes": 1,
+    "preferenciaClase": "TURISTA",
+    "destinoPreferido": "Lisboa",
+    "disponibilidadFinanciera": 400,
+    "ninos": false,
+    "trabaja": false,
+    "independizado": false,
+    "ingresos": 0,
+    "domicilio": "Rua do Sol, 12, Porto, Portugal",
+    "universidad": "U.Porto, Porto, Portugal"
+  }
+]

@@ -10,7 +10,6 @@ public class Cliente {
     private String destinoPreferido;
     private int disponibilidadFinanciera; // Lo consideramos como un atributo en el que se define lo máximo que puede
                                           // gastar el cliente.
-    //private boolean ninos; // Los niños son aquellos viajeros menores de 12 años.
     private boolean trabaja; // True --> Sí. False --> No.
     private boolean independizado; // True --> Sí. False --> No.
     private int ingresos;
@@ -32,6 +31,7 @@ public class Cliente {
         this.edad = edad;
         this.frecuenciaViajes = frecuenciaViajes;
         this.preferenciaClase = preferenciaClase;
+        
         switch (preferenciaClase.toLowerCase()) {
             case "turista":
                 this.preferenciaClase = tipoViaje.TURISTA;
@@ -65,7 +65,7 @@ public class Cliente {
         return frecuenciaViajes;
     }
 
-    public char getPreferenciaClase(){
+    public tipoViaje getPreferenciaClase(){
         return preferenciaClase;
     }
 
@@ -113,7 +113,7 @@ public class Cliente {
         frecuenciaViajes = nuevaFrecuenciaViajes;
     }
 
-    public void setPreferenciaClase(char nuevaPreferenciaClase){
+    public void setPreferenciaClase(tipoViaje nuevaPreferenciaClase){
         preferenciaClase = nuevaPreferenciaClase;
     }
 

@@ -124,11 +124,10 @@ public void setPaisDestino(String paisDestino) {
     }
 
     
-    private List<Billete> crear_lista(int billetes) {
+    private void crear_lista(int billetes) {
         for (int i = 0; i < billetes; i++) {
             this.billetes.add(new Billete());
         }   
-        return null;
     }
 
     public LocalDate parse_fecha(String fecha){
@@ -138,6 +137,39 @@ public void setPaisDestino(String paisDestino) {
                 System.out.println("Fecha inválida: " + textoFecha);
                 return null; // o lanzar tu propia excepción, según te convenga
         }
+    }
+
+    public boolean viajaUnaVezAlMesDuranteCurso() {
+        List<Viaje> viajes = this.viajes;
+        if (viajes == null || viajes.isEmpty()) return false;
+    
+        Set<YearMonth> mesesConViaje = new HashSet<>();
+    
+        for (Viaje v : viajes) {
+            if (v.getTipo() != tipoBillete.TURISTA) continue;
+            if (!esTrayectoDomicilioUniversidad(v)) continue;
+    
+            LocalDate fecha = v.getFecha();
+            int mes = fecha.getMonthValue();
+    
+            if (esMesCurso(mes)) {
+                mesesConViaje.add(YearMonth.from(fecha));
+            }
+        }
+        return mesesConViaje.size() >= 9;
+    }
+
+    private boolean esTrayectoDomicilioUniversidad(Viaje v) {
+    String dom = this.getDomicilio();
+    String uni = this.getUniversidad();
+
+    return (v.getOrigen().equals(dom) && v.getDestino().equals(uni))
+        || (v.getOrigen().equals(uni) && v.getDestino().equals(dom));
+    }
+
+    private static boolean esMesCurso(int mes) {
+        // Ejemplo: septiembre–junio
+        return mes >= 9 || mes <= 6;
     }
 
 }

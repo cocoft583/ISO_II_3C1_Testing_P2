@@ -55,13 +55,18 @@ public class Cliente {
 
     public boolean viajaUnaVezAlMesDuranteCurso() {
             List<Viaje> viajes = this.viajes;
-            if (viajes == null || viajes.isEmpty()) return false;
+
+            if (viajes == null || viajes.isEmpty()) 
+                 return false;
         
             Set<YearMonth> mesesConViaje = new HashSet<>();
         
             for (Viaje v : viajes) {
-                if (v.getTipo() != tipoBillete.TURISTA) continue;
-                if (!esTrayectoDomicilioUniversidad(v)) continue;
+                if (v.getTipo() != tipoBillete.TURISTA)
+                     continue;
+
+                if (!esTrayectoDomicilioUniversidad(v))
+                     continue;
         
                 LocalDate fecha = v.getFecha();
                 int mes = fecha.getMonthValue();

@@ -11,7 +11,7 @@ public class Tarifa {
 
     private String nombre;
     private double descuento; // 0.10 = 10 %
-    Set<Integer> mesesCurso = Set.of(1,2,3,4,5,6,9,10,11,12)
+    Set<Integer> mesesCurso = Set.of(1,2,3,4,5,6,9,10,11,12);
 
     public Tarifa(String nombre, double descuento) {
         this.nombre = nombre;
@@ -26,20 +26,8 @@ public class Tarifa {
         return descuento;
     }
 
-    public boolean viajaDuranteElCurso(Cliente c){
-        boolean mescurso = false;
-        List<Viaje> viajeDuranteCurso= new ArrayList<>();
-        //Verificamos que el viaje se realice entre el domicilio y la universidad
-
-        for(Viaje v : c.viajes){
-            if((v.origen.equals(c.getDomicilio) && v.destino.equals(c.getUniversidad())) || (v.origen.equals(c.getUniversidad) && v.destino.equals(c.getDomicilio()))){
-                if(mesesCurso.contains(v.getFecha().getMonthValue()))
-                viajeDuranteCurso.add(v);   
-             
-            } else continue;
-
-        }
-        
+    public boolean viajaDuranteElCurso(Cliente c){ //Quizás lo podemos quitar
+        return c.viajaUnaVezAlMesDuranteCurso();
      }
 
 
@@ -83,9 +71,9 @@ public class Tarifa {
             }
         }
 
+        // 2) 18–25 años, estudiante en otra ciudad, viajando en turista
         if (edad >= 18 && edad <= 25 && !trabaja) {
-            // simplificación: consideramos "al menos 12 viajes/año en turista"
-            if (clase == tipoViaje.TURISTA && frecuencia >= 12 && (destino.equals(c.getDomicilio()) || destino.equals(c.getUniversidad())) {
+            if (viajaDuranteElCurso(c)) {
                 return new Tarifa("Gorrión", 0.15);
             }
         }

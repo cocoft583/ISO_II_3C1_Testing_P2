@@ -56,7 +56,7 @@ public class Tarifa {
 
         int edad = c.getEdad();
         int frecuencia = c.getFrecuenciaViajes();
-        tipoViaje clase = c.getPreferenciaClase();
+        tipoBillete clase = c.getPreferenciaClase();
         String destino = c.getDestinoPreferido();
         int ingresos = c.getIngresos();        
         boolean trabaja = c.getTrabaja();
@@ -66,9 +66,7 @@ public class Tarifa {
         if (edad < 18) {
             if (frecuencia >= 6) {
                 return new Tarifa("Pajarillo", 0.10);
-            } else {
-                return null;
-            }
+            } 
         }
 
         // 2) 18–25 años, estudiante en otra ciudad, viajando en turista
@@ -81,7 +79,7 @@ public class Tarifa {
         // 3) 18–25, trabaja
         if (edad >= 18 && edad <= 25 && trabaja) {
             
-            if (clase == tipoViaje.TURISTA && frecuencia >= 3) {
+            if (clase == tipoBillete.TURISTA && frecuencia >= 3) {
                 if (!independizado) {
                     return new Tarifa("Viaja ahora que puedes", 0.05);
                 } else {
@@ -92,7 +90,7 @@ public class Tarifa {
 
         // 4) >25 años, ingresos entre 20k y 35k, 6 viajes/año en turista dentro de Europa
         if (edad > 25 && ingresos > 20000 && ingresos < 35000) {
-            if (clase == tipoViaje.TURISTA && frecuencia >= 6 && paisDestino.equalsIgnoreCase("europa")) {
+            if (clase == tipoBillete.TURISTA && frecuencia >= 6 && paisDestino.equalsIgnoreCase("europa")) {
                 if (v.isConNinos()) {
                     return new Tarifa("Conoce Europa con tus peques", 0.10);
                 } else {
@@ -103,7 +101,7 @@ public class Tarifa {
 
         // 5) >25 años, ingresos >35k, 6 viajes/año en business a Asia o América
         if (edad > 25 && ingresos > 35000) {
-            if (clase == tipoViaje.BUSINESS && frecuencia >= 6 &&
+            if (clase == tipoBillete.BUSINESS && frecuencia >= 6 &&
                 (paisDestino.equalsIgnoreCase("asia") || paisDestino.equalsIgnoreCase("america"))) {
 
                 if (v.isConNinos()) {

@@ -26,31 +26,9 @@ public class Tarifa {
         return descuento;
     }
 
-    public boolean viajaDuranteElCurso(Cliente c){ //Quizás lo podemos quitar
+    public static boolean viajaDuranteElCurso(Cliente c){ //Quizás lo podemos quitar
         return c.viajaUnaVezAlMesDuranteCurso();
      }
-
-
-
-        if((c.viajes.origen.equals(c.getDomicilio) && c.viajes.destino.equals(c.getUniversidad())) || (c.viajes.origen.equals(c.getUniversidad) && c.viajes.destino.equals(c.getDomicilio()))){
-            viajeDuranteCurso.add(c.viaje); //Esta lista contendrá los viajes realizados durante el curso unicamente.
-            //Verificamos que se realice durante los viajes del curso
-            Iterator<Viaje> viaje = viajeDuranteCurso.iterator();
-            while (viaje.hasNext()) {
-                Viaje v = viaje.next();
-                while (!mescurso) {
-                    for(int i=0; i < mesesCurso.length; i++){
-                        if (mesescurso[i] == v.getFecha().getMonthValue()) {
-                            mescurso = true;
-                        }
-                    }
-                }
-            }
-        }
-
-        return mescurso;
-    }
-
 
     public static Tarifa calcularTarifa(Cliente c, Viaje v) {
 
@@ -61,6 +39,7 @@ public class Tarifa {
         int ingresos = c.getIngresos();        
         boolean trabaja = c.getTrabaja();
         boolean independizado = c.getIndependizado();
+        String paisDestino = v.getPaisDestino();
 
         // 1) Menor de edad → Pajarillo
         if (edad < 18) {

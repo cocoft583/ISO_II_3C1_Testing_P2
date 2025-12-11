@@ -1,7 +1,10 @@
+package testing_p2_3c1;
+
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Viaje {
 
@@ -11,19 +14,23 @@ public class Viaje {
     private String paisDestino;
     private String origen;
     private boolean conNinos;
-    private String motivo;
+    private motivoViaje motivo;
     private LocalDate fecha;
 
     private static final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    public viaje(String tipo, String destino, String paisDestino, String origen, int billetes, boolean conNinos,
+    public Viaje() {
+
+    }
+
+    public Viaje(String tipo, String destino, String paisDestino, String origen, int billetes, boolean conNinos,
             String motivo) {
 
         this.destino = destino;
         this.origen = origen;
         this.conNinos = conNinos;
         this.paisDestino = paisDestino;
-        this.billetes = crear_lista(billetes); //REVISAR ESTO: Se crea dentro de viajes la lista de billetes
+        crear_lista(billetes); //REVISAR ESTO: Se crea dentro de viajes la lista de billetes
 
         switch (tipo.toLowerCase()) {
             case "turista":
@@ -95,11 +102,11 @@ public class Viaje {
         this.conNinos = conNinos;
     }
 
-    public String getMotivo() {
+    public motivoViaje getMotivo() {
         return motivo;
     }
 
-    public void setMotivo(String motivo) {
+    public void setMotivo(motivoViaje motivo) {
         this.motivo = motivo;
     }
 
@@ -111,7 +118,7 @@ public class Viaje {
         this.fecha = fecha;
     }
 
-    publicpublic String getPaisDestino() {
+    public String getPaisDestino() {
     return paisDestino;
 }
 
@@ -125,6 +132,7 @@ public void setPaisDestino(String paisDestino) {
 
     
     private void crear_lista(int billetes) {
+        this.billetes = new ArrayList<>();
         for (int i = 0; i < billetes; i++) {
             this.billetes.add(new Billete());
         }   
@@ -134,7 +142,7 @@ public void setPaisDestino(String paisDestino) {
         try {
             return LocalDate.parse(fecha, FORMATO_FECHA);
         } catch (DateTimeParseException e) {
-                System.out.println("Fecha inválida: " + textoFecha);
+                System.out.println("Fecha inválida: " + fecha);
                 return null; // o lanzar tu propia excepción, según te convenga
         }
     }

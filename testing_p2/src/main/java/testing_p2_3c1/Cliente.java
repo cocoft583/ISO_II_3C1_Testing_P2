@@ -1,4 +1,4 @@
-package ISO_II_3C1_Testing_P2.testing_p2.src.main.java.testing_p2_3c1;
+package testing_p2_3c1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,6 @@ public class Cliente {
             int disponibilidadFinanciera, boolean ninos, boolean trabaja, boolean independizado, int ingresos,
             String domicilio, String universidad) {
         this.edad = edad;
-        this.preferenciaClase = preferenciaClase;
         
         switch (preferenciaClase.toLowerCase()) {
             case "turista":

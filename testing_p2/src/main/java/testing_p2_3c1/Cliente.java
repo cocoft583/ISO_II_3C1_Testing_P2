@@ -104,7 +104,7 @@ public class Cliente {
 
     public int getFrecuenciaViajes(){
         
-        return frecuenciaViajes;
+        return viajes.size();
     }
 
     public tipoBillete getPreferenciaClase(){

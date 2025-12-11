@@ -1,12 +1,16 @@
-package ISO_II_3C1_Testing_P2.testing_p2.src.main.java.testing_p2_3c1;
+package testing_p2_3c1;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDate;
+import java.time.YearMonth;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Cliente {
     private int edad;
     private int frecuenciaViajes;
-    private tipoViaje preferenciaClase; // Será clase turista o clase business;
+    private tipoBillete preferenciaClase; // Será clase turista o clase business;
     private String destinoPreferido;
     private int disponibilidadFinanciera; // Lo consideramos como un atributo en el que se define lo máximo que puede
                                           // gastar el cliente.
@@ -20,7 +24,7 @@ public class Cliente {
                                 // la ciudad y el país.
     
     // Contiene la lista de viajes realizados por el cliente.
-    List<viaje> viajes = new ArrayList<>();
+    List<Viaje> viajes = new ArrayList<>();
  
 
     //Podremos tener una lista de billetes, y según queramos filtrar realizaremos una búsqueda. Habrá que pedir el número de hijos y en función de eso iremos por un caminmo u otro.
@@ -29,28 +33,28 @@ public class Cliente {
             int disponibilidadFinanciera, boolean ninos, boolean trabaja, boolean independizado, int ingresos,
             String domicilio, String universidad) {
         this.edad = edad;
-        this.preferenciaClase = preferenciaClase;
         
         switch (preferenciaClase.toLowerCase()) {
             case "turista":
-                this.preferenciaClase = tipoViaje.TURISTA;
+                this.preferenciaClase = tipoBillete.TURISTA;
                 break;
             case "business":
-                this.preferenciaClase = tipoViaje.BUSINESS;
+                this.preferenciaClase = tipoBillete.BUSINESS;
+                break;
             case "primera":
-                this.preferenciaClase = tipoViaje.PRIMERA;
+                this.preferenciaClase = tipoBillete.PRIMERA;
                 break;
             default:
                 throw new IllegalArgumentException("Tipo de billete desconocido");
         }
         this.destinoPreferido = destinoPreferido;
         this.disponibilidadFinanciera = disponibilidadFinanciera;
-        this.ninos = ninos;
         this.trabaja = trabaja;
         this.independizado = independizado;
         this.ingresos = ingresos;
         this.domicilio = domicilio;
         this.universidad = universidad;
+        this.frecuenciaViajes = viajes.size();
     }
 
     public boolean viajaUnaVezAlMesDuranteCurso() {
@@ -100,10 +104,10 @@ public class Cliente {
 
     public int getFrecuenciaViajes(){
         
-        return frecuenciaViajes;
+        return viajes.size();
     }
 
-    public tipoViaje getPreferenciaClase(){
+    public tipoBillete getPreferenciaClase(){
         return preferenciaClase;
     }
 
@@ -113,10 +117,6 @@ public class Cliente {
 
     public int getDisponibilidadFinanciera(){
         return disponibilidadFinanciera;
-    }
-
-    public boolean getNinos(){
-        return ninos;
     }
 
     public boolean getTrabaja(){
@@ -151,7 +151,7 @@ public class Cliente {
         frecuenciaViajes = nuevaFrecuenciaViajes;
     }
 
-    public void setPreferenciaClase(tipoViaje nuevaPreferenciaClase){
+    public void setPreferenciaClase(tipoBillete nuevaPreferenciaClase){
         preferenciaClase = nuevaPreferenciaClase;
     }
 
@@ -161,10 +161,6 @@ public class Cliente {
 
     public void setDisponibilidadFinanciera(int nuevaDisponibilidadFinanciera){
         disponibilidadFinanciera = nuevaDisponibilidadFinanciera;
-    }
-
-    public void setNinos(boolean actualizarNinos){
-        ninos = actualizarNinos;
     }
 
     public void setTrabaja(boolean actualizarTrabaja){
@@ -194,7 +190,6 @@ public class Cliente {
             + " ,preferenciaClase= " + preferenciaClase
             + " ,destinoPreferido= " + destinoPreferido
             + " ,disponibilidadFinanciera= " + disponibilidadFinanciera
-            + " ,ninos= " + ninos
             + " ,trabaja= " + trabaja
             + " ,independizado= " + independizado
             + " ,ingresos= " + ingresos
